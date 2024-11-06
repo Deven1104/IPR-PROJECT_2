@@ -174,11 +174,11 @@ model = ContextDiffusion(text_encoder, image_encoder, diffusion_model, tokenizer
 # Cell 8: Load Example Images
 
 # Define paths to your images
-query_image_path = "/content/g.png"
+query_image_path = "./Images/g.png"
 context_image_paths = [
-    "/content/a.png",
-   # "/content/11.png",
-    #"/content/12.png"
+    "./Images/a.png",
+   # "./Images/11.png",
+    #"./Images/12.png"
 ]
 
 # Load the query image
