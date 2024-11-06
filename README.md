@@ -7,8 +7,9 @@ The Context Diffusion framework leverages a pre-trained diffusion model combined
 # Code :
 This code implements a Context Diffusion model using a combination of CLIP, Stable Diffusion, and PyTorch. The goal is to generate an image based on a text prompt, query image, and context images. Here’s a concise breakdown:
 
-** Key Components
-**Setup and Device Selection
+**Key Components**
+
+**Setup and Device Selection**
 
 The code checks for GPU availability, setting the device to cuda if available for faster computation.
 Helper Functions for Image Processing
@@ -17,7 +18,7 @@ calculate_mean_std: Calculates the mean and standard deviation for each channel 
 load_image_as_tensor: Loads an image, resizes it to 224x224 (suitable for CLIP), and normalizes it based on its own mean and standard deviation.
 Initialize Pretrained Models
 
-**CLIP Model: 
+**CLIP Model:** 
 Used for encoding text and images into embeddings. It has a text_encoder for the prompt and image_encoder for context images.
 Stable Diffusion Model: Loaded from the diffusers library, it generates images based on input embeddings and a prompt.
 Define the ContextDiffusion Model
@@ -25,8 +26,8 @@ Define the ContextDiffusion Model
 This class combines embeddings from both text and visual contexts:
 text_encoder encodes the prompt if provided.
 image_encoder encodes each context image.
-image_projection: A linear layer aligns image embeddings with the dimensions of text embeddings, so they can be combined.
-** Forward Method:
+**image_projection:** A linear layer aligns image embeddings with the dimensions of text embeddings, so they can be combined.
+ **Forward Method:**
 Combines text embeddings (repeated if multiple context images are used) and projected image embeddings into a single combined_embeddings tensor.
 Calls diffusion_model to generate an image based on the prompt, though it currently does not directly use the combined_embeddings in diffusion.
 Load and Process Images
